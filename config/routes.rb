@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-  post 'users/:email/add_note/:note_id', to: 'users#add_note'
-  delete 'users/:email/remove_note/:note_id', to: 'users#remove_note'
+  post 'users/:id/add_note/:note_id', to: 'users#add_note'
+  delete 'users/:id/remove_note/:note_id', to: 'users#remove_note'
 
   devise_for :users
   resources :notes, only: [:index, :show, :create,:update, :destroy]

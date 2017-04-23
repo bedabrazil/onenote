@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+
+  post 'users/:email/add_note/:note_id', to: 'users#add_note'
+  delete 'users/:email/remove_note/:note_id', to: 'users#remove_note'
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :notes, only: [:index, :show, :create,:update, :destroy]
+  
+  post 'tags/:title/add_to_note/:note_id', to: 'tags#add_to_note'
+  delete 'tags/:title/remove_from_note/:note_id', to: 'tags#remove_from_note'
 end
